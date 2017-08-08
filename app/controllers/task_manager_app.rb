@@ -21,4 +21,9 @@ class TaskManagerApp < Sinatra::Base
     task.save
     redirect '/tasks'
   end
+
+  get '/tasks/:id' do
+    @task = Task.find(params[:id])
+    erb :show
+  end
 end
